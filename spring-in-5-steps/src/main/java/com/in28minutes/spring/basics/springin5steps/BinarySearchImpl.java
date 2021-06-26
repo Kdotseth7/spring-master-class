@@ -2,9 +2,14 @@ package com.in28minutes.spring.basics.springin5steps;
 
 import java.util.Arrays;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class BinarySearchImpl {
 
-    SortAlgorithm sortAlgorithm;
+    @Autowired
+    private SortAlgorithm sortAlgorithm;
 
     public BinarySearchImpl(SortAlgorithm sortAlgorithm) {
         this.sortAlgorithm = sortAlgorithm;
