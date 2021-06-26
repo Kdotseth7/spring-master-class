@@ -8,7 +8,11 @@ public class SpringIn5StepsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringIn5StepsApplication.class, args);
-		BinarySearchImpl binarySearchImpl = new BinarySearchImpl();
+		// BubbleSortAlgorithm bubbleSortAlgorithm = new BubbleSortAlgorithm();
+		// BinarySearchImpl binarySearchImpl = new
+		// BinarySearchImpl(bubbleSortAlgorithm);
+		QuickSortAlgorithm quickSortAlgorithm = new QuickSortAlgorithm();
+		BinarySearchImpl binarySearchImpl = new BinarySearchImpl(quickSortAlgorithm);
 		int[] arr = { 11, 21, 3, 17, 9, 155, 16, 19, 350 };
 		int result = binarySearchImpl.binarySearch(arr, 19);
 		System.out.println(result);

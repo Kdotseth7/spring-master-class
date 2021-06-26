@@ -1,22 +1,24 @@
 package com.in28minutes.spring.basics.springin5steps;
 
-public class BubbleSortAlgorithm {
+public class BubbleSortAlgorithm implements SortAlgorithm {
 
     // TC --> O(n^2)
     // SC --> O(1)
     // No. of passes = n - 1 ; No. of comparisons in each pass = n - 1 ; Not used in
     // industry, only for educational purposes
-    public int[] bubbleSort(int[] arr) {
-        int arrayLength = arr.length;
+
+    @Override
+    public int[] sort(int[] array, int left, int right) {
+        int arrayLength = array.length;
         for (int i = 0; i < arrayLength - 1; i++) {
             for (int j = 0; j < arrayLength - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
+                if (array[j] > array[j + 1]) {
                     // Swap adjacent array elements
-                    swap(arr, j, j + 1);
+                    swap(array, j, j + 1);
                 }
             }
         }
-        return arr;
+        return array;
     }
 
     public void swap(int[] arr, int x, int y) {

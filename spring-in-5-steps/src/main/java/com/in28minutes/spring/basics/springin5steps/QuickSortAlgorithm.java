@@ -1,6 +1,6 @@
 package com.in28minutes.spring.basics.springin5steps;
 
-public class QuickSortAlgorithm {
+public class QuickSortAlgorithm implements SortAlgorithm {
 
     // TC --> Best Case: O(n log n), Worst Case: O(n^2)
     // SC --> Best Case: O(log n) = height of the tree, Worst Case: O(n) if there is
@@ -13,14 +13,15 @@ public class QuickSortAlgorithm {
      * element as pivot
      */
 
-    public int[] quickSort(int[] array, int left, int right) {
+    @Override
+    public int[] sort(int[] array, int left, int right) {
         int pivot = left;
         int partitionIndex;
         if (left < right) {
             partitionIndex = partition(array, pivot, left, right);
             // Sort Left and Right
-            quickSort(array, left, partitionIndex);
-            quickSort(array, partitionIndex + 1, right);
+            sort(array, left, partitionIndex);
+            sort(array, partitionIndex + 1, right);
         }
         return array;
     }

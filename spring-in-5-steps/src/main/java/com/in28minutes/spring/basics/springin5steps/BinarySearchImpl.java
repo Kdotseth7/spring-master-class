@@ -4,14 +4,17 @@ import java.util.Arrays;
 
 public class BinarySearchImpl {
 
+    SortAlgorithm sortAlgorithm;
+
+    public BinarySearchImpl(SortAlgorithm sortAlgorithm) {
+        this.sortAlgorithm = sortAlgorithm;
+    }
+
     // Sort the Array
     // Search the Array
     // Return the result
     public int binarySearch(int arr[], int data) {
-        BubbleSortAlgorithm bubbleSortAlgorithm = new BubbleSortAlgorithm();
-        int[] sortedArray = bubbleSortAlgorithm.bubbleSort(arr);
-        // QuickSortAlgorithm quickSortAlgorithm = new QuickSortAlgorithm();
-        // int[] sortedArray = quickSortAlgorithm.quickSort(arr, 0, arr.length - 1);
+        int[] sortedArray = sortAlgorithm.sort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(sortedArray));
         int low = 0;
         int high = sortedArray.length - 1;
