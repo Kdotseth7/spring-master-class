@@ -3,17 +3,28 @@ package com.in28minutes.spring.basics.springin5steps;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class BinarySearchImpl {
 
     @Autowired
+    // @Qualifier("quick")
     private SortAlgorithm sortAlgorithm;
 
+    // Constructor Injection
     public BinarySearchImpl(SortAlgorithm sortAlgorithm) {
         this.sortAlgorithm = sortAlgorithm;
     }
+
+    // Setter Injection
+    // public void setSortAlgorithm(SortAlgorithm sortAlgorithm) {
+    // this.sortAlgorithm = sortAlgorithm;
+    // }
 
     // Sort the Array
     // Search the Array
@@ -21,6 +32,7 @@ public class BinarySearchImpl {
     public int binarySearch(int arr[], int data) {
         int[] sortedArray = sortAlgorithm.sort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(sortedArray));
+        System.out.println(sortAlgorithm);
         int low = 0;
         int high = sortedArray.length - 1;
         int mid;
