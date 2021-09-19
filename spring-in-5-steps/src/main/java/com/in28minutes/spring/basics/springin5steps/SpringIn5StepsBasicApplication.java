@@ -5,6 +5,7 @@ import com.in28minutes.spring.basics.springin5steps.basic.BinarySearchImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class SpringIn5StepsBasicApplication {
@@ -25,7 +26,8 @@ public class SpringIn5StepsBasicApplication {
 	// Loosely coupled with Spring
 	public static void main(String[] args) {
 		// Application Context
-		ApplicationContext applicationContext = SpringApplication.run(SpringIn5StepsBasicApplication.class, args);
+		ConfigurableApplicationContext applicationContext = SpringApplication.run(SpringIn5StepsBasicApplication.class,
+				args);
 		BinarySearchImpl binarySearchImpl = applicationContext.getBean(BinarySearchImpl.class);
 		System.out.println(binarySearchImpl);
 		BinarySearchImpl binarySearchImpl1 = applicationContext.getBean(BinarySearchImpl.class);
@@ -33,6 +35,7 @@ public class SpringIn5StepsBasicApplication {
 		int[] arr = { 11, 21, 3, 17, 9, 155, 16, 19, 350 };
 		int result = binarySearchImpl.binarySearch(arr, 19);
 		System.out.println(result);
+		applicationContext.close();
 	}
 
 }
