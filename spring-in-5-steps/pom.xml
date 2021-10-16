@@ -20,6 +20,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
+		</dependency
+		>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
 		</dependency>
 
 		<dependency>
@@ -34,6 +40,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+                	<mainClass>com.in28minutes.spring.basics.scope.SpringIn5StepsBasicApplication</mainClass>
+            	</configuration>
 			</plugin>
 		</plugins>
 	</build>
